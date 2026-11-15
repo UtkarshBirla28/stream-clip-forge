@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stream-clip-forge"
+version = "0.1.0"
+description = "Find the best moments of a game stream and turn them into vertical Shorts with face cam, captions, titles and descriptions."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "yt-dlp",
+    "faster-whisper",
+    "opencv-python",
+    "numpy",
+]
+
+[project.optional-dependencies]
+api = ["anthropic"]
+dev = ["pytest"]
+
+[project.scripts]
+clipforge = "clipforge.cli:main"
+
+[tool.setuptools]
+packages = ["clipforge"]
